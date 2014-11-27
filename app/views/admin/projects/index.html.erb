@@ -17,6 +17,7 @@
                 <td><%= project.developer.name %></td>
 				<td><%= "#{project.address.locality}, #{project.address.city}" %></td>
                 <td class="text-center">
+                    <a class='btn btn-info btn-xs' href="<%= admin_project_path(project) %>"><span class="glyphicon glyphicon-edit"></span> Show</a> 
                     <a class='btn btn-info btn-xs' href="<%= edit_admin_project_path(project) %>"><span class="glyphicon glyphicon-edit"></span> Edit</a> 
                     <%= link_to raw("<span class='glyphicon glyphicon-remove'>Del</span>"), admin_project_path( project ), :method => :delete , :class => "btn btn-danger btn-xs" %>                    
                     <!-- <a class="btn btn-danger btn-xs" href="<%#= admin_project_path(project) %>" method='delete'><span class="glyphicon glyphicon-remove"></span> Del</a></td> -->
