@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: 
+  description: 
+  status: 
+  possession: 
+  total_units: 
+  sizes: 
+  total_area: 
+  specifications: 
+  amenities: 
+  logo: 
+
+two:
+  name: 
+  description: 
+  status: 
+  possession: 
+  total_units: 
+  sizes: 
+  total_area: 
+  specifications: 
+  amenities: 
+  logo: 

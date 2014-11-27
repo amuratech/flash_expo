@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  address1: 
+  locality: 
+  city: 
+  zip: 
+  country: 
+
+two:
+  address1: 
+  locality: 
+  city: 
+  zip: 
+  country: 

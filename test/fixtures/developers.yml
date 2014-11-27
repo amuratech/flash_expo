@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: 
+  description: 
+  logo: 
+  phone: 
+  email: 
+  address1: 
+  locality: 
+  city: 
+  zip: 
+  state: 
+  package: 
+
+two:
+  name: 
+  description: 
+  logo: 
+  phone: 
+  email: 
+  address1: 
+  locality: 
+  city: 
+  zip: 
+  state: 
+  package: 
