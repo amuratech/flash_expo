@@ -1,2 +1,59 @@
-<div class="container-fluid well">
+<%= form_for [:admin, @project],html: {id:"", role: "form"} do |f| %>
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title">Project Details</h3>
+	</div> 
+	
+	<div class="panel-body">
+		<div class="row">
+			<div class="col-md-6 col-sm-12">				
+				<div class="form-group">
+					<%= f.label :name %>
+					<%= f.text_field :name, class: "form-control", required: "required", placeholder: "Name" %>
+				</div>
+				<div class="form-group">
+					<%= f.label :description %>
+					<%= f.text_area :description, class: "form-control", required: "required", placeholder: "Description", rows: 5 %>
+				</div>
+				<div class="form-group">
+					<%#= f.label :possession %>
+					<%#= f.text_field :possession, class: "form-control datepicker", required: "required", placeholder: "Possession", readonly: "readonly", data: {:"date-format" => "dd/mm/yyyy"} %>
+				</div>
+				<div class="form-group">
+					<%= f.label :lat, "Exact location" %>
+					<div class="row">
+						<div class="col-xs-6">
+							<%= f.text_field :lat, class: "form-control", required: "required", placeholder: "Latitude" %>
+						</div>
+						<div class="col-xs-6">
+							<%= f.text_field :lng, class: "form-control", required: "required", placeholder: "Longitude" %>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="col-md-6 col-sm-12">				
+				<div class="form-group">
+					<%=f.label :total_units, class: "control-label"%><br/>
+					<%= f.text_field :total_units, class: "form-control ", tabindex: "3", required: "required" %>
+				</div>
+				<div class="form-group">
+					<%=f.label :total_area, class: "control-label"%><br/>
+					<%= f.text_field :total_area, class: "form-control ", tabindex: "3", required: "required" %>
+				</div>
+				<div class="form-group">
+					<%# @project.address ||= @project.build_address %>			    
+					<%= f.fields_for :address do |address_form| %>
+						<%= render :partial => "addresses/form", locals: {f: address_form, address: @project.address } %>
+					<% end %>
+				</div>
+			</div>
+			<%= f.hidden_field :developer_id,:value => @developer.id ,class: "form-control required"%>
+			<div class="form-group">
+				<%= f.submit "Save",:class => "btn btn-primary", tabindex: "9"%>
+			</div>
+		</div>
+	</div>
 </div>
+<% end %>

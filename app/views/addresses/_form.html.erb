@@ -1,0 +1,34 @@
+<div class="form-group">
+	<div class="row">
+		<div class="col-md-12 col-sm-12">
+			<%= f.label :address1, "Address" %>
+			<%= f.text_field :address1, :value => get_address1(address), class: "form-control", required: "required", placeholder: "Address" %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6 col-sm-6">
+			<%= f.label :city %>
+			<%= f.text_field :city, :value => get_city(address), class: "form-control", required: "required", placeholder: "City" %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4 col-sm-4">
+			<%= f.label :locality %>
+			<%= f.text_field :locality, :value => get_locality(address), class: "form-control", required: "required", placeholder: "Locality" %>
+			<%#= f.select :locality, COUNTRIES, {prompt: "Select Country", selected: "India"}, required: true, class: "form-control countries" %>
+		</div>
+	</div>
+		
+</div>
+<div class="form-group">
+	<div class="row">		
+		<div class="col-md-4 col-sm-4">
+			<%= f.label :country %>
+			<%= f.select :country, COUNTRIES, {prompt: "Select Country", selected: "India"}, required: true, class: "form-control countries" %>
+		</div>
+		<div class="col-md-4 col-sm-4">
+			<%= f.label :zip %>
+			<%= f.text_field :zip, :value => get_zip(address), class: "form-control", required: "required", placeholder: "Zip" %>
+		</div>
+	</div>
+</div>

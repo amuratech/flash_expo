@@ -10,15 +10,23 @@
             <th class="text-center">Action</th>
         </tr>
     </thead>
+        <% if @developers.count > 0 %>
 		<% @developers.each do |developer| %>
             <tr>
                 <td><%= developer.name %></td>
                 <td><%= developer.package %></td>
 				<td><%= developer.projects.count %></td>
-                <td class="text-center"><a class='btn btn-info btn-xs' href="<%= edit_admin_developers_path(developer) %>"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a href="<%= edit_admin_developers_path(developer) %>" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+                <td class="text-center">
+                    <a class='btn btn-info btn-xs' href="<%= admin_developer_path(developer) %>"><span class="glyphicon glyphicon-edit"></span> Show</a> 
+                    <a class='btn btn-info btn-xs' href="<%= edit_admin_developer_path(developer) %>"><span class="glyphicon glyphicon-edit"></span> Edit</a> 
+                    <%= link_to raw("<span class='glyphicon glyphicon-remove'>Del</span>"), admin_developer_path( developer ), :method => :delete , :class => "btn btn-danger btn-xs" %>                    
+                    <!-- <a class="btn btn-danger btn-xs" href="<%= edit_admin_developer_path(developer) %>"> <span class="glyphicon glyphicon-remove"></span> Del</a> -->
+                </td>
             </tr>
 		<% end %>
-        
+        <% else %>
+            No developers found.
+        <% end %>
     </table>
     </div>
 	<div class="row">
