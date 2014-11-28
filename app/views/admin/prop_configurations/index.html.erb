@@ -1,0 +1,38 @@
+
+    <div class="row custyle">
+		<h1 class="well">Manage Configurations</h1>
+    <table class="table table-striped custab">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Project</th>
+			<th>Total Cost</th>
+            <th class="text-center">Action</th>
+        </tr>
+    </thead>
+        <% if @prop_configurations.count > 0 %>
+		<% @prop_configurations.each do |config| %>
+            <tr>
+                <td><%= config.name %></td>
+                <td><%= config.project.name %></td>
+                <td><%= config.total_cost %></td>				
+                <td class="text-center">
+                    <a class='btn btn-info btn-xs' href="<%= edit_admin_prop_configuration_path(config) %>"><span class="glyphicon glyphicon-edit"></span> Edit</a>
+                    <%#= link_to raw("<span class='glyphicon glyphicon-remove'>Del</span>"), admin_prop_configurations_path( config ), :method => :delete , :class => "btn btn-danger btn-xs" %>                    
+                   
+                </td>
+            </tr>
+		<% end %>
+        <% else %>
+            No Configurations Present.
+        <% end %>
+        
+    </table>
+    </div>
+	<div class="row">
+		<!-- <div class="pull-left"><a class='btn btn-info btn-xs' href="<%#= new_admin_prop_configuration_path %>">Add</a></div> -->
+    	<div class="pull-right">
+    		<%= will_paginate @prop_configurations %>
+    	</div>
+	</div>
+</div>
