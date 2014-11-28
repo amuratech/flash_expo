@@ -9,10 +9,10 @@ class Developer
   field :email, type: String
   field :package, type: String
   
-  has_many :projects
+  has_many :projects, dependent: :destroy
   embeds_one :address, as: :addressable
   
   mount_uploader :logo, LogoUploader
-  attr_accessible :logo
+  attr_accessible :logo, :name, :description, :phone, :email, :package, :address
   
 end
